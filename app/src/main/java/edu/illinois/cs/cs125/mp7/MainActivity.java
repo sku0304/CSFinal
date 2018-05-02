@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int ERROR_DIALOG_REQUEST = 9001;
 
-    /*
+
     private void init(){
         Button btnMap = (Button) findViewById(R.id.button2);
         btnMap.setOnClickListener(new View.OnClickListener() {
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    */
+
 
     public boolean isServiceOK() {
         Log.d(TAG, "isServicesOK");
@@ -54,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*
+
         if(isServiceOK()) {
             init();
         }
-        */
+
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,15 +66,15 @@ public class MainActivity extends AppCompatActivity {
 
                 Calendar calendar = Calendar.getInstance();
 
-                calendar.set(Calendar.HOUR_OF_DAY, 23);
-                calendar.set(Calendar.MINUTE, 20);
+                calendar.set(Calendar.HOUR_OF_DAY, 0);
+                calendar.set(Calendar.MINUTE, 48);
                 calendar.set(Calendar.SECOND, 0);
                 Intent intent = new Intent(getApplicationContext(), Notification_receiver.class);
 
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 100,intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
                 AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY ,pendingIntent);
             }
         });
 
